@@ -6,19 +6,23 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:45:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/22 12:33:19 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/24 19:21:22 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	void	*mlx;
-	t_data	img;
+	char	**map;
 
-	mlx = mlx_init();
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel,
-			&img.line_length, &img.endian);
+	map = ft_putmapintab(argv[1]);
+	if (argc != 2 || map == NULL || ft_checkmap(argv[1], map) != 1)
+	{
+		if (map == NULL)
+			ft_error(argc, 7);
+		else
+			ft_error(argc, ft_checkmap(argv[1], map));
+		return (0);
+	}
 }
