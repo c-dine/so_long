@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/24 20:02:04 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/24 20:31:58 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ typedef struct	s_vector
 }				t_vector;
 
 typedef struct	s_window {
-	void		*reference;
+	void		*ref;
 	t_vector	size;
 }				t_window;
 
 typedef struct	s_image {
-	void		*img;
+	void		*ref;
 	char		*addr;
 	t_vector	size;
 	int			bits_per_pixel;
