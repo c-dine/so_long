@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:45:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/24 20:36:59 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/25 23:48:30 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,22 @@
 
 int	main(int argc, char **argv)
 {
-	char		**map;
-	void		*mlx;
-	t_window	win;
+	t_program	solong;
 
-	map = ft_putmapintab(argv[1]);
-	if (argc != 2 || map == NULL || ft_checkmap(argv[1], map) != 1)
+	solong.map = ft_putmapintab(argv[1]);
+	if (argc != 2 || solong.map == NULL || ft_checkmap(argv[1], solong.map) != 1)
 	{
-		if (map == NULL)
+		if (solong.map == NULL)
 			ft_error(argc, 7);
 		else
-			ft_error(argc, ft_checkmap(argv[1], map));
+			ft_error(argc, ft_checkmap(argv[1], solong.map));
 		return (0);
 	}
-	mlx = mlx_init();
-	win.ref = mlx_new_window(mlx, 1920, 1080, "so_long");
-	mlx_loop(mlx);
-	ft_putmap(win.ref, map, mlx)
+	solong.move_count = 0;
+	solong.mlx = mlx_init();
+	solong.win = ft_new_window(solong.mlx, ft_strlen(solong.map[0]) * 32, 
+		ft_map_lines(solong.map) * 32, "so_long");
+	ft_init_map(&solong);
+	ft_hook(&solong);
+	mlx_loop(solong.mlx);
 }
