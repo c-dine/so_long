@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:25:55 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 12:36:19 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 16:44:53 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int ft_close (t_program *solong)
 		printf("\tYOU WON!\n");
 	else
 		printf("\t   YOU LOST!\n");
-    printf("\t-- SCORE --\nMove count: %d\tFish caught: %d/%d\n", (*solong).move_count, (*solong).fish_caught, (*solong).nb_fish_total);
-	// destroy display
+    printf("\t-- SCORE --\nMove count: %d\tFish caught: %d/%d\n",
+		(*solong).move_count, (*solong).fish_caught, (*solong).nb_fish_total);
     ft_destroy_map(solong); 
 	free((*solong).spriteref);
 	i = 0;

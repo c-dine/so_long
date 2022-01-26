@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 12:11:56 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 17:05:54 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,11 @@ void		ft_delete_n(char **map);
 t_window    ft_new_window(void *mlx, int width, int height, char *name);
 void		ft_init_map(t_program *solong);
 t_image		ft_new_sprite(void *mlx, char *path);
-void		ft_hook(t_program *solong);
 int			ft_close (t_program *solong);
 void    ft_destroy_map(t_program *solong);
-void    ft_init_fish(t_program *solong);
+void    ft_init_var(t_program *solong);
 void    ft_redraw_map(t_program *solong);
+int ft_get_index_ref(char c);
+int ft_keyhook(int keycode, t_program *solong);
 
 #endif

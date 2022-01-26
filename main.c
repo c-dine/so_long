@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:45:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 12:33:17 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 16:47:36 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int	main(int argc, char **argv)
 	solong.mlx = mlx_init();
 	solong.win = ft_new_window(solong.mlx, ft_strlen(solong.map[0]) * 32, 
 		ft_map_lines(solong.map) * 32, "so_long");
-	ft_init_fish(&solong);
+	ft_init_var(&solong);
 	ft_init_map(&solong);
-	ft_hook(&solong);
+	mlx_hook(solong.win.ref, 17, 0, ft_close, &solong);
+    mlx_key_hook(solong.win.ref, &ft_keyhook, &solong);
 	mlx_loop(solong.mlx);
 }
