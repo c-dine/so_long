@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:28:22 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/25 23:26:36 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 11:17:24 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,52 +43,4 @@ void ft_delete_n(char **map)
 		}
 		i++;
 	}
-}
-
-void	ft_lstadd_back(t_sprite_ref **alst, t_sprite_ref *new)
-{
-	t_sprite_ref	*last;
-
-	if (*alst)
-	{	
-		last = ft_lstlast(*alst);
-		last->next = new;
-	}
-	else
-	{
-		*alst = new;
-	}
-}
-
-t_sprite_ref	*ft_lstlast(t_sprite_ref *lst)
-{
-	t_sprite_ref	*end;
-	t_sprite_ref	*result;
-
-	if (lst == NULL)
-		return (NULL);
-	if (lst->next == NULL)
-		result = lst;
-	else
-	{
-		end = lst->next;
-		while (end != NULL)
-		{
-			result = end;
-			end = end->next;
-		}
-	}
-	return (result);
-}
-
-t_sprite_ref	*ft_lstnew(void *content)
-{
-	t_sprite_ref	*chain;
-
-	chain = malloc(sizeof(t_sprite_ref));
-	if (chain == NULL)
-		return (NULL);
-	chain->next = NULL;
-	chain->ref = content;
-	return (chain);
 }

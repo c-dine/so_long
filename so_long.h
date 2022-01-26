@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 00:42:49 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 12:11:56 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,11 @@ typedef struct	s_image {
 	int			endian;
 }				t_image;
 
-typedef struct	s_sprite_ref {
-	void				*ref;
-	struct s_sprite_ref	*next;
-}				t_sprite_ref;
-
 typedef struct	s_program {
 	void			*mlx;
 	t_window		win;
 	char			**map;
-	t_sprite_ref	*sprites;
+	char			**spriteref;
 	int				move_count;
 	int				nb_fish_total;
 	int				fish_caught;
@@ -75,10 +70,8 @@ void		ft_init_map(t_program *solong);
 t_image		ft_new_sprite(void *mlx, char *path);
 void		ft_hook(t_program *solong);
 int			ft_close (t_program *solong);
-void		ft_lstadd_back(t_sprite_ref **alst, t_sprite_ref *new);
-t_sprite_ref	*ft_lstlast(t_sprite_ref *lst);
-t_sprite_ref	*ft_lstnew(void *content);
 void    ft_destroy_map(t_program *solong);
 void    ft_init_fish(t_program *solong);
+void    ft_redraw_map(t_program *solong);
 
 #endif

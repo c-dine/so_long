@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:25:08 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 00:51:44 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 12:01:17 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void    ft_editmap(t_program *solong, char dir, int row, int col)
             (*solong).win_lose = 1;
             ft_close(solong);
         }
-        (*solong).map[row][col - 1] = 'P';
+        (*solong).map[row][col - 1] = 'L';
     }
     if (dir == 'r')
     {
@@ -61,7 +61,7 @@ void    ft_editmap(t_program *solong, char dir, int row, int col)
             (*solong).win_lose = 1;
             ft_close(solong);
         }
-        (*solong).map[row][col + 1] = 'P';
+        (*solong).map[row][col + 1] = 'R';
     }
     if (dir == 'd')
     {
@@ -73,7 +73,7 @@ void    ft_editmap(t_program *solong, char dir, int row, int col)
             (*solong).win_lose = 1;
             ft_close(solong);
         }
-        (*solong).map[row + 1][col] = 'P';
+        (*solong).map[row + 1][col] = 'D';
     }
     if (dir == 'u')
     {
@@ -85,7 +85,7 @@ void    ft_editmap(t_program *solong, char dir, int row, int col)
             (*solong).win_lose = 1;
             ft_close(solong);
         }
-        (*solong).map[row - 1][col] = 'P';
+        (*solong).map[row - 1][col] = 'U';
     }
     (*solong).move_count += 1;
 }
@@ -103,16 +103,15 @@ void    ft_move(char dir, t_program *solong)
         col = 0;
         while ((*solong).map[row][col])
         {
-            if ((*solong).map[row][col] == 'P')
+            if ((*solong).map[row][col] == 'P' || (*solong).map[row][col] == 'L' 
+                || (*solong).map[row][col] == 'R' || (*solong).map[row][col] == 'D'
+                 || (*solong).map[row][col] == 'U')
             {
                 if (ft_checkway(solong, dir, row, col) == 1)
                 {
                     ft_editmap(solong, dir, row, col);
-    ////////////////////////////////////////////////////////////////////
-    printf("Move count: %d\tFish caught: %d/%d\n", (*solong).move_count, (*solong).fish_caught, (*solong).nb_fish_total);
-    ////////////////////////////////////////////////
-                    // ft_destroy_map(solong);
-                    ft_init_map(solong);
+                    printf("Move count: %d\tFish caught: %d/%d\n", (*solong).move_count, (*solong).fish_caught, (*solong).nb_fish_total);
+                    ft_redraw_map(solong);
                     moved = 1;
                 }
                 else
