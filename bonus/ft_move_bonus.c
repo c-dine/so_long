@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move.c                                          :+:      :+:    :+:   */
+/*   ft_move_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:25:08 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 17:23:46 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 20:35:57 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int ft_checkway(t_program *solong, char dir, int row, int col)
 {
@@ -68,6 +68,10 @@ int ft_editmap(t_program *solong, char dir, int row, int col)
     printf("Move count: %d\tFish caught: %d/%d\n", (*solong).move_count,
         (*solong).fish_caught, (*solong).nb_fish_total);
     ft_redraw_map(solong);
+    ft_checkdeath(solong, row, col);
+    ft_move_reaper(solong, row, col);
+    ft_checkdeath(solong, row, col);
+    ft_redraw_map(solong);
     return (1);
 }
 
@@ -89,7 +93,7 @@ void    ft_move(char dir, t_program *solong)
                 == 'D' || (*solong).map[row][col] == 'U')
             {
                 if (ft_checkway(solong, dir, row, col) == 1)
-                    moved =ft_editmap(solong, dir, row, col);
+                    moved = ft_editmap(solong, dir, row, col);
             }
             if (moved == 1)
                 break ;

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mlx_utils.c                                     :+:      :+:    :+:   */
+/*   ft_mlx_utils_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:32:16 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/25 18:29:21 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 17:47:13 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 t_window    ft_new_window(void *mlx, int width, int height, char *name)
 {

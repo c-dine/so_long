@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:45:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 16:47:36 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 20:12:41 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	main(int argc, char **argv)
 {
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	solong.mlx = mlx_init();
 	solong.win = ft_new_window(solong.mlx, ft_strlen(solong.map[0]) * 32, 
 		ft_map_lines(solong.map) * 32, "so_long");
+	ft_init_reaper(&solong);
 	ft_init_var(&solong);
 	ft_init_map(&solong);
 	mlx_hook(solong.win.ref, 17, 0, ft_close, &solong);

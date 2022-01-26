@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_init_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:44:54 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 17:06:46 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 20:11:29 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void    ft_redraw_map(t_program *solong)
 {
@@ -26,7 +26,7 @@ void    ft_redraw_map(t_program *solong)
         {
             c = (*solong).map[row][col];
             if (c == '0' || c == 'P' || c == 'D' || c == 'U' || c == 'R'
-                || c == 'L')
+                || c == 'L' || c == 'Z' || c == 'Y')
                 mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
                 (*solong).spriteref[ft_get_index_ref(c)], col * 32, row * 32);
             col++;
@@ -53,6 +53,10 @@ int ft_get_index_ref(char c)
         return (6);
     else if (c == 'L')
         return (7);
+    else if (c == 'Z')
+        return (8);
+    else if (c == 'Y')
+        return (9);
     return (-1);
 }
 
@@ -70,7 +74,8 @@ void    ft_init_map(t_program *solong)
         {
             c = (*solong).map[row][col];
             if (c == '1' || c == '0' || c == 'C' || c == 'E' || c == 'P'
-                || c == 'D' || c == 'U' || c == 'R' || c == 'L')
+                || c == 'D' || c == 'U' || c == 'R' || c == 'L'
+                || c == 'Z' || c == 'Y')
                 mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
                 (*solong).spriteref[ft_get_index_ref(c)], col * 32, row * 32);
             col++;
@@ -111,7 +116,10 @@ void    ft_init_var(t_program *solong)
     (*solong).fish_caught = 0;
     (*solong).nb_fish_total = 0;
     (*solong).win_lose = 0;
+    (*solong).reaper.x = ft_get_reaper_col(solong);
+    (*solong).reaper.y = ft_get_reaper_row(solong);
     ft_init_sprite(solong);
+    ft_init_sprite_reaper(solong);
     row = 0;
     while ((*solong).map[row][0])
     {
