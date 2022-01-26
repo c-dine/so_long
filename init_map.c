@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:44:54 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/25 20:30:00 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 00:43:29 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,28 @@ void    ft_init_map(t_program *solong)
                 ft_draw(&(*solong), row, col, "./img/door.xpm");
             else if ((*solong).map[row][col] == 'P')
                 ft_draw(&(*solong), row, col, "./img/front.xpm");
+            col++;
+        }
+        row++;
+    }
+}
+
+void    ft_init_fish(t_program *solong)
+{
+    int row;
+    int col;
+
+    (*solong).fish_caught = 0;
+    (*solong).nb_fish_total = 0;
+    (*solong).win_lose = 0;
+    row = 0;
+    while ((*solong).map[row][0])
+    {
+        col = 0;
+        while ((*solong).map[row][col])
+        {
+            if ((*solong).map[row][col] == 'C')
+                (*solong).nb_fish_total += 1;
             col++;
         }
         row++;

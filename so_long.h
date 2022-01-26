@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/25 23:47:36 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/26 00:42:49 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ typedef struct	s_program {
 	char			**map;
 	t_sprite_ref	*sprites;
 	int				move_count;
+	int				nb_fish_total;
+	int				fish_caught;
+	int				win_lose;
 }				t_program;
 
 char		*get_next_line(int fd);
@@ -76,5 +79,6 @@ void		ft_lstadd_back(t_sprite_ref **alst, t_sprite_ref *new);
 t_sprite_ref	*ft_lstlast(t_sprite_ref *lst);
 t_sprite_ref	*ft_lstnew(void *content);
 void    ft_destroy_map(t_program *solong);
+void    ft_init_fish(t_program *solong);
 
 #endif
