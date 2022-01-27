@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 22:02:43 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 23:07:36 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void		ft_init_sprite_reaper(t_program *solong);
 void		ft_move_reaper(t_program *solong, int row, int col);
 int			ft_get_position_col(t_program *solong, char c);
 int			ft_get_position_row(t_program *solong, char c);
-void		ft_death(t_program *solong, char side);
+void		ft_death(t_program *solong);
 void		ft_checkdeath(t_program *solong);
 char		*ft_get_string(t_program *solong, int msg);
 void		ft_display_msg(t_program *solong, int msg);
@@ -91,5 +91,6 @@ void		ft_display_fish_count(t_program *solong);
 void		ft_display_which_msg(t_program *solong, int msg);
 int			ft_isline(char *str);
 int			ft_hook_death(t_program *solong);
+void		ft_init_sprite_reaper_left(t_program *solong);
 
 #endif

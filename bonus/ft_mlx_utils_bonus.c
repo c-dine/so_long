@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:32:16 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 17:21:04 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 23:04:21 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,24 @@ t_image	ft_new_sprite(t_program *solong, char *path)
 	img.addr = mlx_get_data_addr(img.ref, &img.bits_per_pixel,
 			&img.line_length, &img.endian);
 	return (img);
+}
+
+void	ft_init_sprite_reaper_left(t_program *solong)
+{
+	t_image	sprite;
+
+	sprite = ft_new_sprite(solong, "./img/deatha.xpm");
+	(*solong).spriteref[16] = sprite.ref;
+	sprite = ft_new_sprite(solong, "./img/deathb.xpm");
+	(*solong).spriteref[17] = sprite.ref;
+	sprite = ft_new_sprite(solong, "./img/deathc.xpm");
+	(*solong).spriteref[18] = sprite.ref;
+	sprite = ft_new_sprite(solong, "./img/deathd.xpm");
+	(*solong).spriteref[19] = sprite.ref;
+	sprite = ft_new_sprite(solong, "./img/deathe.xpm");
+	(*solong).spriteref[20] = sprite.ref;
+	sprite = ft_new_sprite(solong, "./img/deathf.xpm");
+	(*solong).spriteref[21] = sprite.ref;
+	sprite = ft_new_sprite(solong, "./img/deathg.xpm");
+	(*solong).spriteref[22] = sprite.ref;
 }

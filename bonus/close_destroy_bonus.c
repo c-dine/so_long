@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:25:55 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 22:24:59 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 23:12:26 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_destroy_map(t_program *solong)
 		mlx_destroy_image((*solong).mlx, (*solong).spriteref[i]);
 		i++;
 	}
-	if ((*solong).nb_sprite < 17)
-		printf("A file is missing.\n");
+	if ((*solong).nb_sprite < 23)
+		printf("A file is missing. %d\n", (*solong).nb_sprite);
 }
 
 int	ft_close(t_program *solong)
@@ -44,15 +44,17 @@ int	ft_close(t_program *solong)
 	exit(0);
 }
 
-void	ft_death(t_program *solong, char side)
+void	ft_death(t_program *solong)
 {
-	(void) side;
+	if (ft_get_position_col(solong, 'P') < ft_get_position_col(solong, 'Z')
+		&& (*solong).loop_kill == 9)
+		(*solong).loop_kill = 16;
 	mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
 		(*solong).spriteref[(*solong).loop_kill],
 		ft_get_position_col(solong, 'Z') * 32,
 		ft_get_position_row(solong, 'Z') * 32);
 	usleep(90000);
-	if ((*solong).loop_kill == 15)
+	if ((*solong).loop_kill == 15 || (*solong).loop_kill == 22)
 	{
 		(*solong).win_lose = -2;
 		mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,

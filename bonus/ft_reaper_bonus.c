@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:43:03 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 22:24:33 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 23:00:23 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ void	ft_init_sprite_reaper(t_program *solong)
 	(*solong).spriteref[14] = sprite.ref;
 	sprite = ft_new_sprite(solong, "./img/death7.xpm");
 	(*solong).spriteref[15] = sprite.ref;
-	sprite = ft_new_sprite(solong, "./img/death_left.xpm");
-	(*solong).spriteref[16] = sprite.ref;
+	ft_init_sprite_reaper_left(solong);
 }
 
 int	ft_checkway_reaper(t_program *solong, char dir, int col, int row)

@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:45:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 21:57:55 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 23:07:29 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 int	ft_hook_death(t_program *solong)
 {
 	if ((*solong).win_lose == -1)
-		ft_death(solong, (*solong).map[ft_get_position_row(solong,
-				'Z')][ft_get_position_col(solong, 'Z')]);
+		ft_death(solong);
 	return (0);
 }
 
