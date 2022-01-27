@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:26:16 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 15:18:52 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 16:24:40 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*ft_cattoline(char *buff, char *line)
 
 	new = malloc(sizeof(char) * (ft_strlen(line) + ft_strlen(buff) + 1));
 	if (new == NULL)
-		return (NULL);
+		exit(0);
 	j = 0;
 	i = 0;
 	while (line[i])
@@ -91,6 +91,8 @@ char	*get_next_line(int fd)
 	else
 		ret = 100;
 	line = malloc(sizeof(char));
+	if (line == NULL)
+		exit(0);
 	line[0] = '\0';
 	while (ret && ft_checkfd(fd, ret) == 1)
 	{

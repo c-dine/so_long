@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 15:20:12 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 17:30:38 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_program {
 	t_window		win;
 	char			**map;
 	char			**spriteref;
+	int				nb_sprite;
 	int				move_count;
 	int				nb_fish_total;
 	int				fish_caught;
@@ -68,7 +69,7 @@ void		ft_error(int argc, int checkmap);
 void		ft_delete_n(char **map);
 t_window	ft_new_window(void *mlx, int width, int height, char *name);
 void		ft_init_map(t_program *solong);
-t_image		ft_new_sprite(void *mlx, char *path);
+t_image		ft_new_sprite(t_program *solong, char *path);
 int			ft_close(t_program *solong);
 void		ft_destroy_map(t_program *solong);
 void		ft_init_var(t_program *solong);

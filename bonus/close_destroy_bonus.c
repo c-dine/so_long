@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:25:55 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 15:09:43 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 17:40:19 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ void	ft_destroy_map(t_program *solong)
 	int	i;
 
 	i = 0;
-	while (i < 17)
+	while (i < (*solong).nb_sprite)
 	{
 		mlx_destroy_image((*solong).mlx, (*solong).spriteref[i]);
 		i++;
 	}
+	if ((*solong).nb_sprite < 17)
+		printf("A file is missing.\n");
 }
 
 int	ft_close(t_program *solong)

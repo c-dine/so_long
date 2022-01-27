@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:04:48 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 16:06:30 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 16:27:04 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char	**ft_putmapintab(char *map_path)
 	if (line_count == -1)
 		return (NULL);
 	map = malloc(sizeof(char **) * (line_count + 1));
+	if (map == NULL)
+		exit(0);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
@@ -56,6 +58,8 @@ char	**ft_putmapintab(char *map_path)
 		line = get_next_line(fd);
 	}
 	map[k] = malloc(sizeof(char));
+	if (map[k] == NULL)
+		exit(0);
 	map[k][0] = '\0';
 	ft_delete_n(map);
 	return (map);

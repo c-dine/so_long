@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:44:54 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 16:00:53 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 17:22:53 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,21 +87,23 @@ void	ft_init_sprite(t_program *solong)
 
 	(*solong).spriteref = malloc(sizeof(void *) * ft_strlen((*solong).map[0])
 			* ft_map_lines((*solong).map));
-	sprite = ft_new_sprite((*solong).mlx, "./img/wall.xpm");
+	if ((*solong).spriteref == NULL)
+		ft_close(solong);
+	sprite = ft_new_sprite(solong, "./img/wall.xpm");
 	(*solong).spriteref[0] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/long_grass.xpm");
+	sprite = ft_new_sprite(solong, "./img/long_grass.xpm");
 	(*solong).spriteref[1] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/fish.xpm");
+	sprite = ft_new_sprite(solong, "./img/fish.xpm");
 	(*solong).spriteref[2] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/door.xpm");
+	sprite = ft_new_sprite(solong, "./img/door.xpm");
 	(*solong).spriteref[3] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/front.xpm");
+	sprite = ft_new_sprite(solong, "./img/front.xpm");
 	(*solong).spriteref[4] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/back.xpm");
+	sprite = ft_new_sprite(solong, "./img/back.xpm");
 	(*solong).spriteref[5] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/right.xpm");
+	sprite = ft_new_sprite(solong, "./img/right.xpm");
 	(*solong).spriteref[6] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/left.xpm");
+	sprite = ft_new_sprite(solong, "./img/left.xpm");
 	(*solong).spriteref[7] = sprite.ref;
 }
 
@@ -110,6 +112,7 @@ void	ft_init_var(t_program *solong)
 	int	row;
 	int	col;
 
+	(*solong).nb_sprite = 0;
 	(*solong).fish_caught = 0;
 	(*solong).nb_fish_total = 0;
 	(*solong).win_lose = 0;

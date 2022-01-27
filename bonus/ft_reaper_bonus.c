@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:43:03 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 15:56:17 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 16:45:28 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,23 @@ void	ft_init_sprite_reaper(t_program *solong)
 {
 	t_image	sprite;
 
-	sprite = ft_new_sprite((*solong).mlx, "./img/tomb.xpm");
+	sprite = ft_new_sprite(solong, "./img/tomb.xpm");
 	(*solong).spriteref[8] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/death1.xpm");
+	sprite = ft_new_sprite(solong, "./img/death1.xpm");
 	(*solong).spriteref[9] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/death2.xpm");
+	sprite = ft_new_sprite(solong, "./img/death2.xpm");
 	(*solong).spriteref[10] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/death3.xpm");
+	sprite = ft_new_sprite(solong, "./img/death3.xpm");
 	(*solong).spriteref[11] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/death4.xpm");
+	sprite = ft_new_sprite(solong, "./img/death4.xpm");
 	(*solong).spriteref[12] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/death5.xpm");
+	sprite = ft_new_sprite(solong, "./img/death5.xpm");
 	(*solong).spriteref[13] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/death6.xpm");
+	sprite = ft_new_sprite(solong, "./img/death6.xpm");
 	(*solong).spriteref[14] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/death7.xpm");
+	sprite = ft_new_sprite(solong, "./img/death7.xpm");
 	(*solong).spriteref[15] = sprite.ref;
-	sprite = ft_new_sprite((*solong).mlx, "./img/death_left.xpm");
+	sprite = ft_new_sprite(solong, "./img/death_left.xpm");
 	(*solong).spriteref[16] = sprite.ref;
 }
 
