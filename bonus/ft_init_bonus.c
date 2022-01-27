@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:44:54 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 00:53:33 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 15:17:43 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void    ft_init_var(t_program *solong)
 {
     int row;
     int col;
-
+    
     (*solong).fish_caught = 0;
     (*solong).nb_fish_total = 0;
     (*solong).win_lose = 0;
@@ -130,4 +130,7 @@ void    ft_init_var(t_program *solong)
         }
         row++;
     }
+    ft_display_which_msg(solong, 0);
+    ft_display_move_count(solong);
+    ft_display_fish_count(solong);
 }

@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:25:08 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 01:33:24 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 14:27:53 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ void    ft_editmap_2(int row, int col, char c, t_program *solong)
     if ((*solong).map[row][col] == 'C')
         (*solong).fish_caught += 1;
     if ((*solong).map[row][col] == 'E')
-    {
         (*solong).win_lose = 1;
-        ft_close(solong);
-    }
-    (*solong).map[row][col] = c;
+    else
+        (*solong).map[row][col] = c;
 }
 
 int ft_editmap(t_program *solong, char dir, int row, int col)
@@ -65,10 +63,10 @@ int ft_editmap(t_program *solong, char dir, int row, int col)
     if (dir == 'u')
         ft_editmap_2(row - 1, col, 'U', solong);
     (*solong).move_count += 1;
-    // printf("Move count: %d\tFish caught: %d/%d\n", (*solong).move_count,
-    //     (*solong).fish_caught, (*solong).nb_fish_total);
-    mlx_string_put((*solong).mlx, (*solong).win.ref, 16, 
-        ft_map_lines((*solong).map) * 32 + 20, 255255255, "Meow is hungry. Get some fish pls.   Move count: ");
+    if (ft_get_position_col(solong, 'P') == -1)
+        ft_display_msg(solong, 2);
+    else
+        ft_display_msg(solong, 0);
     ft_redraw_map(solong);
     ft_checkdeath(solong);
     ft_move_reaper(solong, row, col);
@@ -108,14 +106,13 @@ void    ft_move(char dir, t_program *solong)
 
 int ft_keyhook(int keycode, t_program *solong)
 {
-    (void) solong;
     if (keycode == XK_Escape)
         ft_close(solong);
-    if (keycode == XK_q)
+    if (keycode == XK_a)
         ft_move('l', solong);
     if (keycode == XK_d)
         ft_move('r', solong);
-    if (keycode == XK_z)
+    if (keycode == XK_w)
         ft_move('u', solong);
     if (keycode == XK_s)
         ft_move('d', solong);

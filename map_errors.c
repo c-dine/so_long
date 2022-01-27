@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:10:38 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/24 20:06:53 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 15:16:55 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_checkwalls(char **map)
 	return (1);
 }
 
-int	ft_checkECP(char **map, char c)
+int	ft_check_ecp(char **map, char c)
 {
 	int	i;
 	int	j;
@@ -94,11 +94,11 @@ int	ft_checkECP(char **map, char c)
 
 int	ft_checkelements(char **map)
 {
-	if (ft_checkECP(map, 'E') == 0)
+	if (ft_check_ecp(map, 'E') == 0)
 		return (3);
-	else if (ft_checkECP(map, 'C') == 0)
+	else if (ft_check_ecp(map, 'C') == 0)
 		return (4);
-	else if (ft_checkECP(map, 'P') != 1)
+	else if (ft_check_ecp(map, 'P') != 1)
 		return (5);
 	return (1);
 }
