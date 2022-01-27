@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:43:03 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 16:45:28 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 22:24:33 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,9 @@ void	ft_move_reaper(t_program *solong, int row, int col)
 {
 	int		x;
 	int		y;
-	char	side;
 
 	x = ft_get_position_col(solong, 'Z');
 	y = ft_get_position_row(solong, 'Z');
-	side = (*solong).map[y][x];
 	if (ft_checkway_reaper(solong, 'l', x, y) == 1 && col < x)
 		ft_move_reaper_dir(solong, 'l', x, y);
 	else if (ft_checkway_reaper(solong, 'u', x, y) == 1 && row < y)

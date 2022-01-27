@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:44:54 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 17:08:30 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 22:03:06 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ void	ft_init_var(t_program *solong)
 	(*solong).nb_fish_total = 0;
 	(*solong).win_lose = 0;
 	(*solong).nb_sprite = 0;
+	(*solong).loop_kill = 9;
 	ft_init_sprite(solong);
 	ft_init_sprite_reaper(solong);
 	row = 0;

@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:25:55 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 17:40:19 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 22:24:59 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,20 @@ int	ft_close(t_program *solong)
 
 void	ft_death(t_program *solong, char side)
 {
-	int	i;
-	int	j;
-
-	if (side == 'Z')
-		j = 9;
-	else
-		j = 9;
-	i = 0;
-	while (i < 7)
+	(void) side;
+	mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
+		(*solong).spriteref[(*solong).loop_kill],
+		ft_get_position_col(solong, 'Z') * 32,
+		ft_get_position_row(solong, 'Z') * 32);
+	usleep(90000);
+	if ((*solong).loop_kill == 15)
 	{
+		(*solong).win_lose = -2;
 		mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
-			(*solong).spriteref[j], ft_get_position_col(solong, 'Z') * 32,
-			ft_get_position_row(solong, 'Z') * 32);
-		j++;
-		i++;
+			(*solong).spriteref[8], ft_get_position_col(solong, 'P') * 32,
+			ft_get_position_row(solong, 'P') * 32);
 	}
-	mlx_loop((*solong).mlx);
+	(*solong).loop_kill++;
 }
 
 void	ft_checkdeath(t_program *solong)
@@ -80,8 +77,6 @@ void	ft_checkdeath(t_program *solong)
 		|| (x_p == x_r && (y_p == y_r - 1 || y_p == y_r + 1)))
 	{
 		ft_display_msg(solong, 1);
-		mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
-			(*solong).spriteref[8], x_p * 32, y_p * 32);
-		ft_death(solong, (*solong).map[y_r][x_r]);
+		(*solong).win_lose = -1;
 	}
 }

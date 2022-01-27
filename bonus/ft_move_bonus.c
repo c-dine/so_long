@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:25:08 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 15:32:45 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 21:59:40 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int	ft_editmap(t_program *solong, char dir, int row, int col)
 		ft_display_msg(solong, 0);
 	ft_redraw_map(solong);
 	ft_checkdeath(solong);
-	ft_move_reaper(solong, row, col);
+	if ((*solong).win_lose != -1)
+		ft_move_reaper(solong, row, col);
 	ft_checkdeath(solong);
 	ft_redraw_map(solong);
 	return (1);
@@ -108,13 +109,16 @@ int	ft_keyhook(int keycode, t_program *solong)
 {
 	if (keycode == XK_Escape)
 		ft_close(solong);
-	if (keycode == XK_a)
-		ft_move('l', solong);
-	if (keycode == XK_d)
-		ft_move('r', solong);
-	if (keycode == XK_w)
-		ft_move('u', solong);
-	if (keycode == XK_s)
-		ft_move('d', solong);
+	if ((*solong).win_lose > -1)
+	{
+		if (keycode == XK_a)
+			ft_move('l', solong);
+		if (keycode == XK_d)
+			ft_move('r', solong);
+		if (keycode == XK_w)
+			ft_move('u', solong);
+		if (keycode == XK_s)
+			ft_move('d', solong);
+	}
 	return (0);
 }

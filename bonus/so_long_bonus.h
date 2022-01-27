@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 17:54:06 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 22:02:43 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_program {
 	int				nb_fish_total;
 	int				fish_caught;
 	int				win_lose;
+	int				loop_kill;
 }				t_program;
 
 char		*ft_itoa(int nb, t_program *solong);
@@ -89,5 +90,6 @@ void		ft_display_move_count(t_program *solong);
 void		ft_display_fish_count(t_program *solong);
 void		ft_display_which_msg(t_program *solong, int msg);
 int			ft_isline(char *str);
+int			ft_hook_death(t_program *solong);
 
 #endif
