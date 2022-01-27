@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 17:30:38 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 17:54:06 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ void		ft_display_msg(t_program *solong, int msg);
 void		ft_display_move_count(t_program *solong);
 void		ft_display_fish_count(t_program *solong);
 void		ft_display_which_msg(t_program *solong, int msg);
+int			ft_isline(char *str);
 
 #endif

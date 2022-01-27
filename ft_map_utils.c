@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:04:48 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 16:27:04 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 18:35:36 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,16 @@ int	ft_nb_lines_gnl(char *map_path)
 	return (line_count);
 }
 
-char	**ft_putmapintab(char *map_path)
+char	**ft_fill_map(int fd, int line_count)
 {
-	char	**map;
 	char	*line;
-	int		fd;
-	int		line_count;
+	char	**map;
 	int		k;
 
 	k = 0;
-	line_count = ft_nb_lines_gnl(map_path);
-	if (line_count == -1)
-		return (NULL);
 	map = malloc(sizeof(char **) * (line_count + 1));
 	if (map == NULL)
 		exit(0);
-	fd = open(map_path, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -65,19 +57,18 @@ char	**ft_putmapintab(char *map_path)
 	return (map);
 }
 
-int	ft_map_lines(char **map)
+char	**ft_putmapintab(char *map_path)
 {
-	int	count;
-	int	i;
+	int		fd;
+	int		line_count;
 
-	count = 0;
-	i = 0;
-	while (map[i][0])
-	{
-		count++;
-		i++;
-	}
-	return (count);
+	line_count = ft_nb_lines_gnl(map_path);
+	if (line_count == -1)
+		return (NULL);
+	fd = open(map_path, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	return (ft_fill_map(fd, line_count));
 }
 
 int	ft_checkmap(char *map, char **map_lines)

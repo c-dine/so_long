@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:28:22 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 15:58:18 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 18:35:50 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,33 @@ void	ft_delete_n(char **map)
 		}
 		i++;
 	}
+}
+
+int	ft_isline(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_map_lines(char **map)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 0;
+	while (map[i][0])
+	{
+		count++;
+		i++;
+	}
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:28:22 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 15:07:34 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 18:38:21 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,52 +73,31 @@ void	ft_delete_n(char **map)
 	}
 }
 
-int	ft_get_position_col(t_program *solong, char c)
+int	ft_isline(char *str)
 {
-	int		row;
-	int		col;
-	char	p;
+	int	i;
 
-	row = 0;
-	while ((*solong).map[row][0])
+	i = 0;
+	while (str[i])
 	{
-		col = 0;
-		while ((*solong).map[row][col])
-		{
-			p = (*solong).map[row][col];
-			if (c == 'Z' && (p == 'Z' || p == 'Y'))
-				return (col);
-			if (c == 'P' && (p == 'P' || p == 'R' || p == 'U'
-					|| p == 'L' || p == 'D'))
-				return (col);
-			col++;
-		}
-		row++;
+		if (str[i] == '\n')
+			return (1);
+		i++;
 	}
-	return (-1);
+	return (0);
 }
 
-int	ft_get_position_row(t_program *solong, char c)
+int	ft_map_lines(char **map)
 {
-	int		row;
-	int		col;
-	char	p;
+	int	count;
+	int	i;
 
-	row = 0;
-	while ((*solong).map[row][0])
+	count = 0;
+	i = 0;
+	while (map[i][0])
 	{
-		col = 0;
-		while ((*solong).map[row][col])
-		{
-			p = (*solong).map[row][col];
-			if (c == 'Z' && (p == 'Z' || p == 'Y'))
-				return (row);
-			if (c == 'P' && (p == 'P' || p == 'R' || p == 'U'
-					|| p == 'L' || p == 'D'))
-				return (row);
-			col++;
-		}
-		row++;
+		count++;
+		i++;
 	}
-	return (-1);
+	return (count);
 }

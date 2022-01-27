@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 17:30:44 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 17:52:20 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ void		ft_init_var(t_program *solong);
 void		ft_redraw_map(t_program *solong);
 int			ft_get_index_ref(char c);
 int			ft_keyhook(int keycode, t_program *solong);
+int			ft_isline(char *str);
 
 #endif

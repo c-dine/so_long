@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:26:16 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 16:27:48 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 17:51:17 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,6 @@ static char	*ft_cattoline(char *buff, char *line)
 		new[i++] = '\n';
 	new[i] = '\0';
 	return (new);
-}
-
-static int	ft_isline(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '\n')
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 static void	ft_trim(char *buff, int ret, int checkfd)
@@ -80,16 +66,21 @@ static int	ft_checkfd(int fd, int ret)
 	return (1);
 }
 
+void	ft_ret_val(char *buff, int fd, int *ret)
+{
+	if (ft_strlen(buff) == 0)
+		*ret = read(fd, buff, 100);
+	else
+		*ret = 100;
+}
+
 char	*get_next_line(int fd)
 {
 	char			*line;
 	static char		buff[100 + 1];
 	int				ret;
 
-	if (ft_strlen(buff) == 0)
-		ret = read(fd, buff, 100);
-	else
-		ret = 100;
+	ft_ret_val(buff, fd, &ret);
 	line = malloc(sizeof(char));
 	if (line == NULL)
 		exit(0);
