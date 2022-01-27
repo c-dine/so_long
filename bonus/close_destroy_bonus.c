@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:25:55 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 20:35:10 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 01:31:23 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void    ft_destroy_map(t_program *solong)
     int	i;
 
     i = 0;
-    while (i < 10)
+    while (i < 17)
     {
         mlx_destroy_image((*solong).mlx, (*solong).spriteref[i]);
 		i++;
@@ -33,7 +33,7 @@ int ft_close (t_program *solong)
 	if ((*solong).win_lose == 1)
 		printf("\tYOU WON!\n");
 	else if ((*solong).win_lose == -1)
-		printf("\tYOU GOT KILLED BY THE REAPER!\n");
+		printf("YOU GOT KILLED BY THE REAPER!\n");
 	else
 		printf("\t   YOU LOST!\n");
     printf("\t-- SCORE --\nMove count: %d\tFish caught: %d/%d\n",
@@ -50,18 +50,46 @@ int ft_close (t_program *solong)
 	exit(0);
 }
 
-void ft_death(t_program *solong, char side, int x, int y)
+void ft_death(t_program *solong, char side)
 {
-    (void) side;
-    (void) x;
-    (void) y;
+	int	i;
+	int	j;
+
+	if (side == 'Z')
+		j = 9;
+	else
+		j = 9;
+	i = 0;
+	while (i < 7)
+	{
+		mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
+        (*solong).spriteref[j], ft_get_position_col(solong, 'Z') * 32, ft_get_position_row(solong, 'Z') * 32);
+		// usleep(10000);
+		j++;
+		i++;
+	}
+
     (*solong).win_lose = -1;
     ft_close(solong);
 }
 
-void	ft_checkdeath(t_program *solong, int row, int col)
+void	ft_checkdeath(t_program *solong)
 {
-    if ((row == (*solong).reaper.y && (col == (*solong).reaper.x + 1 || col == (*solong).reaper.x - 1)) 
-        || (col == (*solong).reaper.x && (row == (*solong).reaper.y - 1 || row == (*solong).reaper.y + 1)))
-        ft_death(solong, (*solong).map[(*solong).reaper.y][(*solong).reaper.x], (*solong).reaper.x, (*solong).reaper.y);
+	int	x_r;
+	int	y_r;
+	int	x_p;
+	int	y_p;
+
+	x_r = ft_get_position_col(solong, 'Z');
+	y_r = ft_get_position_row(solong, 'Z');
+	x_p = ft_get_position_col(solong, 'P');
+	y_p = ft_get_position_row(solong, 'P');
+    if ((y_p == y_r && (x_p == x_r + 1 || x_p == x_r - 1))
+        || (x_p == x_r && (y_p == y_r - 1 || y_p == y_r + 1)))
+	{
+		ft_redraw_map(solong);
+        mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
+            (*solong).spriteref[8], x_p * 32, y_p * 32);
+        ft_death(solong, (*solong).map[y_r][x_r]);
+	}
 }

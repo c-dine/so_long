@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 20:35:22 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 01:23:21 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ typedef struct	s_program {
 	int				nb_fish_total;
 	int				fish_caught;
 	int				win_lose;
-	t_vector		reaper;
 }				t_program;
 
 char		*get_next_line(int fd);
@@ -78,9 +77,10 @@ int			ft_keyhook(int keycode, t_program *solong);
 void		ft_init_reaper(t_program *solong);
 void	    ft_init_sprite_reaper(t_program *solong);
 void    	ft_move_reaper(t_program *solong, int row, int col);
-int			ft_get_reaper_col(t_program *solong);
-int			ft_get_reaper_row(t_program *solong);
-void		ft_death(t_program *solong, char side, int x, int y);
-void		ft_checkdeath(t_program *solong, int row, int col);
+int			ft_get_position_col(t_program *solong, char c);
+int			ft_get_position_row(t_program *solong, char c);
+void		ft_death(t_program *solong, char side);
+void		ft_checkdeath(t_program *solong);
+char		*ft_get_string(t_program *solong, int msg);
 
 #endif

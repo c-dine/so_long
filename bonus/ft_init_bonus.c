@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:44:54 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 20:11:29 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 00:53:33 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int ft_get_index_ref(char c)
     else if (c == 'L')
         return (7);
     else if (c == 'Z')
-        return (8);
-    else if (c == 'Y')
         return (9);
+    else if (c == 'Y')
+        return (16);
     return (-1);
 }
 
@@ -116,8 +116,6 @@ void    ft_init_var(t_program *solong)
     (*solong).fish_caught = 0;
     (*solong).nb_fish_total = 0;
     (*solong).win_lose = 0;
-    (*solong).reaper.x = ft_get_reaper_col(solong);
-    (*solong).reaper.y = ft_get_reaper_row(solong);
     ft_init_sprite(solong);
     ft_init_sprite_reaper(solong);
     row = 0;

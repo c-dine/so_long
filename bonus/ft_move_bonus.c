@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:25:08 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 20:35:57 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 01:33:24 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,14 @@ int ft_editmap(t_program *solong, char dir, int row, int col)
     if (dir == 'u')
         ft_editmap_2(row - 1, col, 'U', solong);
     (*solong).move_count += 1;
-    printf("Move count: %d\tFish caught: %d/%d\n", (*solong).move_count,
-        (*solong).fish_caught, (*solong).nb_fish_total);
+    // printf("Move count: %d\tFish caught: %d/%d\n", (*solong).move_count,
+    //     (*solong).fish_caught, (*solong).nb_fish_total);
+    mlx_string_put((*solong).mlx, (*solong).win.ref, 16, 
+        ft_map_lines((*solong).map) * 32 + 20, 255255255, "Meow is hungry. Get some fish pls.   Move count: ");
     ft_redraw_map(solong);
-    ft_checkdeath(solong, row, col);
+    ft_checkdeath(solong);
     ft_move_reaper(solong, row, col);
-    ft_checkdeath(solong, row, col);
+    ft_checkdeath(solong);
     ft_redraw_map(solong);
     return (1);
 }
@@ -92,6 +94,7 @@ void    ft_move(char dir, t_program *solong)
                 || (*solong).map[row][col] == 'R' || (*solong).map[row][col]
                 == 'D' || (*solong).map[row][col] == 'U')
             {
+                ft_checkdeath(solong);
                 if (ft_checkway(solong, dir, row, col) == 1)
                     moved = ft_editmap(solong, dir, row, col);
             }

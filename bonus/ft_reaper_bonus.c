@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:43:03 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 20:35:03 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 00:52:10 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,50 +44,24 @@ void    ft_init_sprite_reaper(t_program *solong)
 {
     t_image sprite;
 
-    sprite = ft_new_sprite((*solong).mlx, "./img/death1.xpm");
+    sprite = ft_new_sprite((*solong).mlx, "./img/tomb.xpm");
     (*solong).spriteref[8] = sprite.ref;
-   sprite = ft_new_sprite((*solong).mlx, "./img/death_left.xpm");
+    sprite = ft_new_sprite((*solong).mlx, "./img/death1.xpm");
     (*solong).spriteref[9] = sprite.ref;
-}
-
-int     ft_get_reaper_col(t_program *solong)
-{
-    int row;
-    int col;
-
-    row = 0;
-    while ((*solong).map[row][0])
-    {
-        col = 0;
-        while ((*solong).map[row][col])
-        {
-            if ((*solong).map[row][col] == 'Z' || (*solong).map[row][col] == 'Y')
-                return (col);
-            col++;
-        }
-        row++;
-    }
-    return (-1);
-}
-
-int     ft_get_reaper_row(t_program *solong)
-{
-    int row;
-    int col;
-
-    row = 0;
-    while ((*solong).map[row][0])
-    {
-        col = 0;
-        while ((*solong).map[row][col])
-        {
-            if ((*solong).map[row][col] == 'Z' || (*solong).map[row][col] == 'Y')
-                return (row);
-            col++;
-        }
-        row++;
-    }
-    return (-1);
+    sprite = ft_new_sprite((*solong).mlx, "./img/death2.xpm");
+    (*solong).spriteref[10] = sprite.ref;
+    sprite = ft_new_sprite((*solong).mlx, "./img/death3.xpm");
+    (*solong).spriteref[11] = sprite.ref;
+    sprite = ft_new_sprite((*solong).mlx, "./img/death4.xpm");
+    (*solong).spriteref[12] = sprite.ref;
+    sprite = ft_new_sprite((*solong).mlx, "./img/death5.xpm");
+    (*solong).spriteref[13] = sprite.ref;
+    sprite = ft_new_sprite((*solong).mlx, "./img/death6.xpm");
+    (*solong).spriteref[14] = sprite.ref;
+    sprite = ft_new_sprite((*solong).mlx, "./img/death7.xpm");
+    (*solong).spriteref[15] = sprite.ref;
+    sprite = ft_new_sprite((*solong).mlx, "./img/death_left.xpm");
+    (*solong).spriteref[16] = sprite.ref;
 }
 
 int ft_checkway_reaper(t_program *solong, char dir, int col, int row)
@@ -139,9 +113,8 @@ void    ft_move_reaper(t_program *solong, int row, int col)
     char    side;
 
 
-    x = (*solong).reaper.x;
-    y = (*solong).reaper.y;
-    printf("%d %d\n", x, y);
+    x = ft_get_position_col(solong, 'Z');
+    y = ft_get_position_row(solong, 'Z');
     side = (*solong).map[y][x];
     if (ft_checkway_reaper(solong, 'l', x, y) == 1 && col < x)
         ft_move_reaper_dir(solong, 'l', x, y);
@@ -151,7 +124,6 @@ void    ft_move_reaper(t_program *solong, int row, int col)
         ft_move_reaper_dir(solong, 'd', x, y);
     else if (ft_checkway_reaper(solong, 'r', x, y) == 1 && col > x)
         ft_move_reaper_dir(solong, 'r', x, y);
-
     else if (ft_checkway_reaper(solong, 'l', x, y) == 1)
         ft_move_reaper_dir(solong, 'l', x, y);
     else if (ft_checkway_reaper(solong, 'd', x, y) == 1)
@@ -162,6 +134,4 @@ void    ft_move_reaper(t_program *solong, int row, int col)
         ft_move_reaper_dir(solong, 'u', x, y);
     else
         printf("RIPPER IS STUCKED! :(");
-    (*solong).reaper.x = ft_get_reaper_col(solong);
-    (*solong).reaper.y = ft_get_reaper_row(solong);
 }
