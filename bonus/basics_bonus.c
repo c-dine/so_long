@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:28:22 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 00:11:03 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 10:58:07 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,12 @@ int     ft_get_position_row(t_program *solong, char c)
     }
     return (-1);
 }
+
+// char	*ft_get_string(t_program *solong, int msg)
+// {
+
+// 	if (msg == 0)
+// 	{
+
+// 	}
+// }

@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:25:55 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 01:31:23 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 10:58:36 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,14 @@ void ft_death(t_program *solong, char side)
 	{
 		mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
         (*solong).spriteref[j], ft_get_position_col(solong, 'Z') * 32, ft_get_position_row(solong, 'Z') * 32);
-		// usleep(10000);
+		usleep(10000);
 		j++;
 		i++;
 	}
 
     (*solong).win_lose = -1;
-    ft_close(solong);
+	mlx_loop((*solong).mlx);
+	 // ft_close(solong);
 }
 
 void	ft_checkdeath(t_program *solong)
@@ -87,6 +88,10 @@ void	ft_checkdeath(t_program *solong)
     if ((y_p == y_r && (x_p == x_r + 1 || x_p == x_r - 1))
         || (x_p == x_r && (y_p == y_r - 1 || y_p == y_r + 1)))
 	{
+		mlx_clear_window((*solong).mlx, (*solong).win.ref);
+		mlx_string_put((*solong).mlx, (*solong).win.ref, 16, 
+    	    ft_map_lines((*solong).map) * 32 + 20, 255255255, "You got killed by the reaper! Press esc to exit.  Move count: ");
+		ft_init_map(solong);
 		ft_redraw_map(solong);
         mlx_put_image_to_window((*solong).mlx, (*solong).win.ref,
             (*solong).spriteref[8], x_p * 32, y_p * 32);
