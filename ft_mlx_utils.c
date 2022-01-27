@@ -6,28 +6,28 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:32:16 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/25 18:29:21 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 16:01:31 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_window    ft_new_window(void *mlx, int width, int height, char *name)
+t_window	ft_new_window(void *mlx, int width, int height, char *name)
 {
-    t_window    win;
+	t_window	win;
 
-    win.ref = mlx_new_window(mlx, width, height, name);
-    win.size.x = width;
-    win.size.y = height;
-    return (win);
+	win.ref = mlx_new_window(mlx, width, height, name);
+	win.size.x = width;
+	win.size.y = height;
+	return (win);
 }
 
-t_image ft_new_sprite(void *mlx, char *path)
+t_image	ft_new_sprite(void *mlx, char *path)
 {
-	t_image img;
-	
+	t_image	img;
+
 	img.ref = mlx_xpm_file_to_image(mlx, path, &img.size.x, &img.size.y);
-	img.addr  = mlx_get_data_addr(img.ref, &img.bits_per_pixel, 
-        &img.line_length, &img.endian);
+	img.addr = mlx_get_data_addr(img.ref, &img.bits_per_pixel,
+			&img.line_length, &img.endian);
 	return (img);
 }

@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:04:48 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/24 20:07:25 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 16:06:30 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	ft_nb_lines_gnl(char *map_path)
 
 char	**ft_putmapintab(char *map_path)
 {
-	char 	**map;
-	char 	*line;
+	char	**map;
+	char	*line;
 	int		fd;
 	int		line_count;
 	int		k;
@@ -92,7 +92,7 @@ int	ft_checkmap(char *map, char **map_lines)
 	return (ret);
 }
 
-void ft_error(int argc, int checkmap)
+void	ft_error(int argc, int checkmap)
 {
 	write(1, "Error\n", 6);
 	if (argc != 2)

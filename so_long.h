@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 17:05:54 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 16:05:59 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@
 # include <stdio.h>
 # include <X11/keysym.h>
 
-typedef struct	s_vector
+typedef struct s_vector
 {
 	int	x;
 	int	y;
 }				t_vector;
 
-typedef struct	s_window {
+typedef struct s_window {
 	void		*ref;
 	t_vector	size;
 }				t_window;
 
-typedef struct	s_image {
+typedef struct s_image {
 	void		*ref;
 	char		*addr;
 	t_vector	size;
@@ -42,7 +42,7 @@ typedef struct	s_image {
 	int			endian;
 }				t_image;
 
-typedef struct	s_program {
+typedef struct s_program {
 	void			*mlx;
 	t_window		win;
 	char			**map;
@@ -65,14 +65,14 @@ int			ft_checkextension(char *map);
 char		**ft_putmapintab(char *map_path);
 void		ft_error(int argc, int checkmap);
 void		ft_delete_n(char **map);
-t_window    ft_new_window(void *mlx, int width, int height, char *name);
+t_window	ft_new_window(void *mlx, int width, int height, char *name);
 void		ft_init_map(t_program *solong);
 t_image		ft_new_sprite(void *mlx, char *path);
-int			ft_close (t_program *solong);
-void    ft_destroy_map(t_program *solong);
-void    ft_init_var(t_program *solong);
-void    ft_redraw_map(t_program *solong);
-int ft_get_index_ref(char c);
-int ft_keyhook(int keycode, t_program *solong);
+int			ft_close(t_program *solong);
+void		ft_destroy_map(t_program *solong);
+void		ft_init_var(t_program *solong);
+void		ft_redraw_map(t_program *solong);
+int			ft_get_index_ref(char c);
+int			ft_keyhook(int keycode, t_program *solong);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:12:56 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 15:11:14 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 15:55:44 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,12 @@ void	ft_display_which_msg(t_program *solong, int msg)
 		mlx_string_put((*solong).mlx, (*solong).win.ref, 16,
 			ft_map_lines((*solong).map) * 32 + 20, 255255255,
 			"You won! Press esc to exit.");
+	}
+	else if (msg == 3)
+	{
+		mlx_string_put((*solong).mlx, (*solong).win.ref, 16,
+			ft_map_lines((*solong).map) * 32 + 20, 255255255,
+			"Reaper is stucked :(");
 	}
 }
 

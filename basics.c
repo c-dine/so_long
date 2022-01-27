@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:28:22 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/26 11:17:24 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 15:58:18 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-void ft_delete_n(char **map)
+void	ft_delete_n(char **map)
 {
 	int	i;
 	int	j;

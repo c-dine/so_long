@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:10:38 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 15:16:55 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/27 16:05:11 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_checkrectangle(char **map)
 {
 	int	i;
 	int	line_length;
-	
+
 	if (ft_map_lines(map) > 0)
 	{
 		line_length = ft_strlen(map[0]);
