@@ -6,12 +6,11 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:45:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 23:07:29 by cdine            ###   ########.fr       */
+/*   Updated: 2022/01/28 18:20:12 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
-
 
 int	ft_hook_death(t_program *solong)
 {
