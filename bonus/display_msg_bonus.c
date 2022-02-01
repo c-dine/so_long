@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 12:12:56 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 18:23:22 by cdine            ###   ########.fr       */
+/*   Updated: 2022/02/01 12:22:21 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	ft_display_fish_count(t_program *solong)
 {
 	char	*count;
 
-	mlx_string_put((*solong).mlx, (*solong).win.ref, 80,
+	mlx_string_put((*solong).mlx, (*solong).win.ref, 90,
 		ft_map_lines((*solong).map) * 32 + 34, 255255255, "Fish caught:");
 	count = ft_itoa((*solong).fish_caught, solong);
-	mlx_string_put((*solong).mlx, (*solong).win.ref, 155,
+	mlx_string_put((*solong).mlx, (*solong).win.ref, 165,
 		ft_map_lines((*solong).map) * 32 + 34, 255255255, count);
 	free(count);
-	mlx_string_put((*solong).mlx, (*solong).win.ref, 170,
+	mlx_string_put((*solong).mlx, (*solong).win.ref, 185,
 		ft_map_lines((*solong).map) * 32 + 34, 255255255, "/");
 	count = ft_itoa((*solong).nb_fish_total, solong);
-	mlx_string_put((*solong).mlx, (*solong).win.ref, 180,
+	mlx_string_put((*solong).mlx, (*solong).win.ref, 195,
 		ft_map_lines((*solong).map) * 32 + 34, 255255255, count);
 	free(count);
 }
