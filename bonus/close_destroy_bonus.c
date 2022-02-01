@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:25:55 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 23:12:26 by cdine            ###   ########.fr       */
+/*   Updated: 2022/02/01 12:03:02 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,16 @@ void	ft_checkdeath(t_program *solong)
 		ft_display_msg(solong, 1);
 		(*solong).win_lose = -1;
 	}
+}
+
+void	ft_destroy_error(t_program *solong)
+{
+	int	i;
+	int	map_lines;
+
+	map_lines = ft_map_lines((*solong).map);
+	i = 0;
+	while (i <= map_lines)
+		free((*solong).map[i++]);
+	free((*solong).map);
 }

@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:42:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 23:07:36 by cdine            ###   ########.fr       */
+/*   Updated: 2022/02/01 12:07:14 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int			ft_checkwalls(char **map);
 int			ft_checkrectangle(char **map);
 int			ft_checkextension(char *map);
 char		**ft_putmapintab(char *map_path);
-void		ft_error(int argc, int checkmap);
+void		ft_error(int argc, int checkmap, t_program *solong);
 void		ft_delete_n(char **map);
 t_window	ft_new_window(void *mlx, int width, int height, char *name);
 void		ft_init_map(t_program *solong);
@@ -92,5 +92,6 @@ void		ft_display_which_msg(t_program *solong, int msg);
 int			ft_isline(char *str);
 int			ft_hook_death(t_program *solong);
 void		ft_init_sprite_reaper_left(t_program *solong);
+void		ft_destroy_error(t_program *solong);
 
 #endif

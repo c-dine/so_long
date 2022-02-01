@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:45:06 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/28 18:20:12 by cdine            ###   ########.fr       */
+/*   Updated: 2022/02/01 12:07:52 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,16 @@ int	main(int argc, char **argv)
 			solong.map) != 1)
 	{
 		if (solong.map == NULL)
-			ft_error(argc, 7);
+			ft_error(argc, 7, &solong);
 		else
-			ft_error(argc, ft_checkmap(argv[1], solong.map));
+			ft_error(argc, ft_checkmap(argv[1], solong.map), &solong);
 		return (0);
 	}
-	solong.move_count = 0;
 	solong.mlx = mlx_init();
 	if (!solong.mlx)
 		return (1);
 	solong.win = ft_new_window(solong.mlx, ft_strlen(solong.map[0]) * 32,
-			ft_map_lines(solong.map) * 32 + 45, "so_long");
+			ft_map_lines(solong.map) * 32 + 45, "FEED THE CAT!");
 	ft_init_reaper(&solong);
 	ft_init_var(&solong);
 	ft_init_map(&solong);

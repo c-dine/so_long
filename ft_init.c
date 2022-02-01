@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:44:54 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 17:22:53 by cdine            ###   ########.fr       */
+/*   Updated: 2022/02/01 11:57:11 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void	ft_init_var(t_program *solong)
 	int	row;
 	int	col;
 
+	(*solong).move_count = 0;
 	(*solong).nb_sprite = 0;
 	(*solong).fish_caught = 0;
 	(*solong).nb_fish_total = 0;

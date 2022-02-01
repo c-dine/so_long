@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:44:54 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 22:03:06 by cdine            ###   ########.fr       */
+/*   Updated: 2022/02/01 11:32:45 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void	ft_init_var(t_program *solong)
 	int	row;
 	int	col;
 
+	(*solong).move_count = 0;
 	(*solong).fish_caught = 0;
 	(*solong).nb_fish_total = 0;
 	(*solong).win_lose = 0;
@@ -124,8 +125,8 @@ void	ft_init_var(t_program *solong)
 	(*solong).loop_kill = 9;
 	ft_init_sprite(solong);
 	ft_init_sprite_reaper(solong);
-	row = 0;
-	while ((*solong).map[row][0])
+	row = -1;
+	while ((*solong).map[++row][0])
 	{
 		col = 0;
 		while ((*solong).map[row][col])
@@ -134,7 +135,6 @@ void	ft_init_var(t_program *solong)
 				(*solong).nb_fish_total += 1;
 			col++;
 		}
-		row++;
 	}
 	ft_display_which_msg(solong, 0);
 	ft_display_move_count(solong);

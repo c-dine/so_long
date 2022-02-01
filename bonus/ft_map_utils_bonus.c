@@ -6,7 +6,7 @@
 /*   By: cdine <cdine@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:04:48 by cdine             #+#    #+#             */
-/*   Updated: 2022/01/27 18:38:09 by cdine            ###   ########.fr       */
+/*   Updated: 2022/02/01 12:06:52 by cdine            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,23 +87,27 @@ int	ft_checkmap(char *map, char **map_lines)
 	return (ret);
 }
 
-void	ft_error(int argc, int checkmap)
+void	ft_error(int argc, int checkmap, t_program *solong)
 {
 	write(1, "Error\n", 6);
 	if (argc != 2)
 		write(1, "Wrong number of parameters.\n", 28);
-	if (checkmap == 2)
-		write(1, "Map not enclosed.\n", 18);
-	if (checkmap == 3)
-		write(1, "No exit.\n", 9);
-	if (checkmap == 4)
-		write(1, "No collectible.\n", 16);
-	if (checkmap == 5)
-		write(1, "None or too many starting points.\n", 34);
-	if (checkmap == 6)
-		write(1, "Map is not a rectangle.\n", 24);
 	if (checkmap == 7)
 		write(1, "Map opening error.\n", 19);
-	if (checkmap == 8)
-		write(1, "Map extension error.\n", 21);
+	else
+	{
+		if (checkmap == 2)
+			write(1, "Map not enclosed.\n", 18);
+		if (checkmap == 3)
+			write(1, "No exit.\n", 9);
+		if (checkmap == 4)
+			write(1, "No collectible.\n", 16);
+		if (checkmap == 5)
+			write(1, "None or too many starting points.\n", 34);
+		if (checkmap == 6)
+			write(1, "Map is not a rectangle.\n", 24);
+		if (checkmap == 8)
+			write(1, "Map extension error.\n", 21);
+		ft_destroy_error(solong);
+	}
 }
