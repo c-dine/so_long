@@ -13,7 +13,7 @@ RM = rm -f
 .c.o: so_long
 	  ${CC} ${FLAGS} -c -I. $< -o ${<:.c=.o}
 
-${NAME}: ${OBJ}
+${NAME}: ${OBJ} mlx
 		${CC} ${FLAGS} ${OBJ} ./minilibx/libmlx_Linux.a -lXext -lX11 -I ./minilibx/include/ -o ${NAME}
 
 all: ${NAME}
@@ -26,5 +26,8 @@ fclean: clean
 
 re: fclean all
 
-bonus: ${OBJ_BONUS}
+bonus: ${OBJ_BONUS} mlx
 		${CC} ${FLAGS} ${OBJ_BONUS} ./minilibx/libmlx_Linux.a -lXext -lX11 -I ./minilibx/include/ -o ${NAME}
+
+mlx:
+	make -C ./minilibx
